@@ -31,7 +31,7 @@ curl -s $MIRROR/$ALPINE_VER/main/$ARCH/apk-tools-static-${APK_TOOLS_VER}.apk | t
 cat <<EOF >> /alpine/etc/fstab
 $ROOT_DEV    /   ext4    defaults,noatime    0   0
 $BOOT_DEV    /boot   ext4    defaults,noatime    0  1
-$SWAP_DEV    swap    swap    defaults    0   0
+$SWAP_DEV    none    swap    sw    0   0
 EOF
 
 cat <<EOF > /alpine/etc/inittab
