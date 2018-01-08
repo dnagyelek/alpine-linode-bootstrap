@@ -8,10 +8,8 @@ auto eth0
 iface eth0 inet dhcp
   hostname $HOST
 "
-
-
-ALPINE_VER=${ALPINE_VER:-"2.7"}
-APK_TOOLS_VER=${APK_TOOLS_VER:-"2.4.1-r0"}
+ALPINE_VER=${ALPINE_VER:-"latest-stable"}
+APK_TOOLS_VER=${APK_TOOLS_VER:-"2.8.1-r2"}
 ARCH=$(uname -m)
 MIRROR="http://nl.alpinelinux.org/alpine"
 
@@ -60,8 +58,8 @@ set default="Alpine Linux"
 set timeout=0
     
 menuentry "Alpine Linux" {
-          linux /vmlinuz-grsec root=/dev/sdb modules=sd-mod,usb-storage,ext4 console=ttyS0 quiet
-          initrd /initramfs-grsec
+          linux /vmlinuz-hardened root=/dev/sdb modules=sd-mod,usb-storage,ext4 console=ttyS0 quiet
+          initrd /initramfs-hardened
 }
 EOF
 
@@ -87,7 +85,7 @@ printf "$INTERFACES" | setup-interfaces -i
 
 rc-update add networking boot
 rc-update add urandom boot
-rc-update add cron
+rc-update add crond
 
 apk add linux-grsec
 
