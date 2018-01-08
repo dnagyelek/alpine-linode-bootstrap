@@ -9,8 +9,9 @@ iface eth0 inet dhcp
   hostname $HOST
 "
 
-ALPINE_VER=${ALPINE_VER:-"latest-stable"}
-APK_TOOLS_VER=${APK_TOOLS_VER:-"2.8.1-r2"}
+
+ALPINE_VER=${ALPINE_VER:-"3.6"}
+APK_TOOLS_VER=${APK_TOOLS_VER:-"2.7.4-r0"}
 ARCH=$(uname -m)
 MIRROR="http://nl.alpinelinux.org/alpine"
 
@@ -26,7 +27,7 @@ mount $BOOT_DEV /alpine/boot
 
 update-ca-certificates
 
-curl -s http://nl.alpinelinux.org/alpine/latest-stable/main/x86_64/apk-tools-static-2.8.1-r2.apk | tar -xzf
+curl -s $MIRROR/$ALPINE_VER/main/$ARCH/apk-tools-static-${APK_TOOLS_VER}.apk | tar xz
 ./sbin/apk.static --repository $MIRROR/$ALPINE_VER/main/ --update-cache --allow-untrusted --root /alpine --initdb add alpine-base alpine-mirrors
 
 cat <<EOF >> /alpine/etc/fstab
