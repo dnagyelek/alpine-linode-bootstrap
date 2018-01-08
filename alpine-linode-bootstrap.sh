@@ -10,8 +10,8 @@ iface eth0 inet dhcp
 "
 
 
-ALPINE_VER=${ALPINE_VER:-"3.6"}
-APK_TOOLS_VER=${APK_TOOLS_VER:-"2.7.4-r0"}
+ALPINE_VER=${ALPINE_VER:-"2.7"}
+APK_TOOLS_VER=${APK_TOOLS_VER:-"2.4.1-r0"}
 ARCH=$(uname -m)
 MIRROR="http://nl.alpinelinux.org/alpine"
 
