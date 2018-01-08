@@ -26,7 +26,7 @@ mount $BOOT_DEV /alpine/boot
 
 update-ca-certificates
 
-curl -s $MIRROR/$ALPINE_VER/main/$ARCH/apk-tools-static-${APK_TOOLS_VER}.apk | tar -xzf
+curl -s http://nl.alpinelinux.org/alpine/latest-stable/main/x86_64/apk-tools-static-2.8.1-r2.apk | tar -xzf
 ./sbin/apk.static --repository $MIRROR/$ALPINE_VER/main/ --update-cache --allow-untrusted --root /alpine --initdb add alpine-base alpine-mirrors
 
 cat <<EOF >> /alpine/etc/fstab
