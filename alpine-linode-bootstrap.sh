@@ -58,8 +58,8 @@ set default="Alpine Linux"
 set timeout=0
     
 menuentry "Alpine Linux" {
-          linux /vmlinuz-hardened root=/dev/sdb modules=sd-mod,usb-storage,ext4 console=ttyS0 quiet
-          initrd /initramfs-hardened
+          linux /boot/vmlinuz-hardened root=/dev/sdb modules=sd-mod,usb-storage,ext4 console=ttyS0 quiet
+          initrd boot/initramfs-hardened
 }
 EOF
 
